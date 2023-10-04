@@ -47,10 +47,10 @@ const postsSlice = createSlice({
                 const post = state.posts.findIndex(post => post.id == action.payload.postId)
                 if (post === -1)
                     return;
-                const reaction = state[post].reactions.findIndex(reaction => reaction.id === action.payload.reactionId)
+                const reaction = state.posts[post].reactions.findIndex(reaction => reaction.id === action.payload.reactionId)
                 if (reaction === -1)
                     return;
-                state[post].reactions[reaction].count++;
+                state.posts[post].reactions[reaction].count++;
 
                 /* 
                 inVideoInitialState = reactions: {
